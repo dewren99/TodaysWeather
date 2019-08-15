@@ -7,12 +7,11 @@ const forecast = (latitude, longitude, callback)=>{
         if(error){
             callback('Unable to connect the services!', undefined)
         }
+        else if(response.body.error){
+            callback('Unable to find the location!', undefined)
+        }
         else{
-            callback(undefined,{
-                summary: response.body.currently.summary,
-                degree: response.body.currently.temperature,
-                rain_chance: response.body.currently.precipProbability
-            })
+            callback(undefined,'Currently ' + response.body.currently.temperature + ' Degree and ' + response.body.currently.precipProbability  + '%' + ' chance of rain')
         }
     })
 }
