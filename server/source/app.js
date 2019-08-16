@@ -6,7 +6,31 @@ const express = require('express')
 
 const app = express()
 
+app.set('view engine', 'hbs')
+
 app.use(express.static(path.join(__dirname, '../public')))
+
+app.get('', (req,res) =>{
+    res.render('index',{
+        title: 'Todays Weather',
+        name: 'Deniz Evrendilek'
+    })
+})
+
+app.get('/about', (req,res) =>{
+    res.render('about',{
+        title: 'About',
+        name: 'Deniz Evrendilek'
+    })
+})
+
+app.get('/help', (req,res) =>{
+    res.render('help',{
+        title: 'Help',
+        name: 'Deniz Evrendilek'
+    })
+})
+
 
 app.get('/weather', (req,res)=>{
     res.send('weather')
