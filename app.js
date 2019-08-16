@@ -24,7 +24,6 @@ else{
     })
 }
 
-console.log(process.argv)
 
 
 
