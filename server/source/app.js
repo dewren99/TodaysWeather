@@ -40,12 +40,31 @@ app.get('/weather', (req,res)=>{
     res.send('weather')
 } )
 
+app.get('/products',(req,res)=>{
+    if(!req.query.search){
+        return res.send({
+            error: 'You must provide search term'
+        })
+    }
+    res.send({
+    products: []
+    })
+})
+
 app.get('/help/*',(req,res)=>{
-    res.send('help - 404')
+    res.render('404', {
+        title: '404',
+        name: 'Deniz Evrendilek',
+        error: 'This help page not found'
+    })
 })
 
 app.get('*',(req,res)=>{
-    res.send('404')
+    res.render('404', {
+        title: '404',
+        name: 'Deniz Evrendilek',
+        error: 'Page not found'
+    })
 })
 
 app.listen(3000, () =>{
