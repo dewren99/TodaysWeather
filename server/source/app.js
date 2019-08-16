@@ -40,6 +40,14 @@ app.get('/weather', (req,res)=>{
     res.send('weather')
 } )
 
+app.get('/help/*',(req,res)=>{
+    res.send('help - 404')
+})
+
+app.get('*',(req,res)=>{
+    res.send('404')
+})
+
 app.listen(3000, () =>{
     console.log('server at 3000')
 })
