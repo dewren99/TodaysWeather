@@ -45,7 +45,7 @@ app.get('/weather', (req,res)=>{
         })
     }
 
-    geocode(req.query.adress,(error, {latitude, longitude, location})=>{
+    geocode(req.query.adress,(error, {latitude, longitude, location} = {})=>{
         if(error)
         {
             return res.send(error)
@@ -55,13 +55,6 @@ app.get('/weather', (req,res)=>{
             adress: req.query.adress
         })
     })
-
-
-    // res.send({
-    //     location: 'Burnaby',
-    //     forecast: 'Cloudy',
-    //     adress: req.query.adress
-    // })
 } )
 
 app.get('/products',(req,res)=>{
