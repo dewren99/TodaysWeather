@@ -5,7 +5,7 @@ const forecast = require('./utilities/forecast.js')
 const user_location = process.argv[2]
 
 if(!user_location){
-    console.log('Undefined Adress!')
+    console.log('Undefined address!')
 }
 else{
     geocode(user_location, (error,{latitude, longitude, location})=>{

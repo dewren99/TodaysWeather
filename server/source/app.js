@@ -4,9 +4,6 @@ const  hbs = require('hbs')
 const geocode = require('./utilities/geocode')
 const forecast = require('./utilities/forecast')
 
-//console.log(__dirname)
-//console.log(path.join(__dirname, '../public'))
-
 const app = express()
 
 app.set('view engine', 'hbs')
@@ -39,23 +36,29 @@ app.get('/help', (req,res) =>{
 
 
 app.get('/weather', (req,res)=>{
-    if(!req.query.search){
+    if(!req.query.address){
         return res.send({
-            error: 'Provide Adress!'
+            error: 'Provide Address!'
         })
     }
-
-    geocode(req.query.adress,(error, {latitude, longitude, location} = {})=>{
+    geocode(req.query.address,(error, {latitude, longitude, location} = {})=>{
         if(error)
         {
-            return res.send(error)
+            return res.send({error})
         }
-        res.send({
-            forecast: forecastData, location,
-            adress: req.query.adress
+        forecast(latitude,longitude,(error, forecastData)=>{
+            if(error)
+            {
+                return res.send({error})
+            }
+            res.send({
+                forecast: forecastData, 
+                location,
+                address: req.query.address
+            })
         })
     })
-} )
+})
 
 app.get('/products',(req,res)=>{
     if(!req.query.search){
@@ -87,8 +90,6 @@ app.get('*',(req,res)=>{
 app.listen(3000, () =>{
     console.log('server at 3000')
 })
-
-
 
 
 
