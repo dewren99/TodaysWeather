@@ -47,6 +47,21 @@ input{
     padding: 8px
 }
 
+.search-box{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.search-result-box{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    text-align: center;
+}
+
 button{
     cursor: pointer;
     border: 1px solid #888888;

@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Todays Weather</title>
-        <link rel="icon" href="">
+        {{!-- <link rel="icon" sizes="16x16" href="../../images/favicon-16x16.png"> --}}
         <link rel="stylesheet" href="/css/style.css">
         
     </head>
@@ -10,18 +10,30 @@
         <div class="main">
         {{>header}}
 
-        <form action="">
-            <input placeholder="Location">
-            <button>Show me the weather</button>
+
+        <div class="search-box">
+            <form action="">
+            <input id="locationInput" placeholder="Location">
+            <button>Search</button>
         </form>
 
-        <p id="i_msg_1"> </p>
-        <p id="i_msg_2"> </p>
-
-
+        
         </div>
+        <div class="search-result-box">
+                   <p id="i_msg_1"> </p>
+        <p id="i_msg_2"> </p>
+        </div>
+ 
+        </div>
+  
         {{>footer}}
-
+        <script>
+function searchAutocomplete(){
+    var input = document.getElementById('locationInput');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+}
+        </script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4VZO2JTkLivsLT4WBugsrPdoReKB8eJQ&libraries=places&callback=searchAutocomplete"></script>
         <script src="/js/client.js"></script>
     </body>
-</html>
+</html> 
