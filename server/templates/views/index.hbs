@@ -4,16 +4,15 @@
         <title>Todays Weather</title>
         {{!-- <link rel="icon" sizes="16x16" href="../../images/favicon-16x16.png"> --}}
         <link rel="stylesheet" href="/css/style.css">
-        
     </head>
     <body>
-        <div class="main">
+        <div id="main" class="main">
         {{>header}}
 
 
         <div class="search-box">
             <form action="">
-            <input id="locationInput" placeholder="Location">
+            <input type="text" id="locationInput" placeholder="Location" onkeypress="this.style.minWidth = ((this.value.length + 2) * 6) + 'px';">
             <button>Search</button>
         </form>
 

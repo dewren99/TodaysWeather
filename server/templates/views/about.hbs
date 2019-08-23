@@ -3,11 +3,14 @@
     <head>
         <title>Todays Weather</title>
         <link rel="stylesheet" href="/css/style.css">
-        {{!-- <script src="/js/client.js"></script>
-    </head> --}}
+        
+        
+        
+    </head>
     <body>
-        <div class="main">
+        <div id="main" class="main">
         {{>header}}
+        <div id="about" class="about">
         <p>
             Hi, thank you for visiting my weather forecast website. 
             I created this website for the purpose of teaching myself
@@ -16,6 +19,9 @@
             For the frontend I've used some CSS (still work in progress).
         </p>
         </div>
+
+        </div>
         {{>footer}}
+        <script src="/js/client.js"></script>
     </body>
 </html>
